@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<script src="manda_img.js"></script>-->
+    <title>Form Email</title>
+</head>
+<body>
+    <form id="upload-form" action="" method="POST" enctype="multipart/form-data">
+     <input type="file" name="file-img" id="file-img" placeholder="Escolha um arquivo">
+     <button name="submit" id="submit" type="submit">Enviar arquivo</button>
+    </form>
+    
+    <script>
+        
+  
+  const doUpload = (url, options) => {
+      const promiseCallback = (resolve, reject) => {
+          fetch(url, options)
+          .then(response => response.json())
+          .then(resolve)
+          .catch(reject)
+      }
+      return new Promise(promiseCallback);
+  }
+  
+  
+  const uploadImage = (e) => {
+       e.preventDefault();
+
+       const file = document.getElementById('file-img');
+
+       const data = new FormData();
+       data.append('image', file.files[0]);
+
+
+       doUpload('https://localhost:44371/api/ImageUpload', {
+           method: 'POST',
+           body: data,
+           headers: {
+
+            'Content-Type': 'multipart/form-data'
+           }
+         
+       })
+       .then(console.log)
+       .catch(console.error)
+   }
+
+
+   const form = document.getElementById('upload-form');
+   console.log(form)
+   form.addEventListener('submit', uploadImage)
+    </script>
+</body>
+</html>
