@@ -31,7 +31,7 @@
        .then(console.log)
        .catch(console.error)
    }
-
+// teste commit
 
    const form = document.getElementById('upload-form');
    console.log(form)
