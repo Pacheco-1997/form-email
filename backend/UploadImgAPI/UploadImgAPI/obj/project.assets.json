@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\victor.pacheco\\source\\repos\\UploadImgAPI\\UploadImgAPI\\UploadImgAPI.csproj",
+      "projectUniqueName": "C:\\Users\\victor.pacheco\\Desktop\\form-email\\backend\\UploadImgAPI\\UploadImgAPI\\UploadImgAPI.csproj",
       "projectName": "UploadImgAPI",
-      "projectPath": "C:\\Users\\victor.pacheco\\source\\repos\\UploadImgAPI\\UploadImgAPI\\UploadImgAPI.csproj",
+      "projectPath": "C:\\Users\\victor.pacheco\\Desktop\\form-email\\backend\\UploadImgAPI\\UploadImgAPI\\UploadImgAPI.csproj",
       "packagesPath": "C:\\Users\\victor.pacheco\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\victor.pacheco\\source\\repos\\UploadImgAPI\\UploadImgAPI\\obj\\",
+      "outputPath": "C:\\Users\\victor.pacheco\\Desktop\\form-email\\backend\\UploadImgAPI\\UploadImgAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
