@@ -20,39 +20,40 @@ namespace UploadImgAPI.Controllers
             _environment = environment;
         }
 
-        public class FileUploadAPI
-        {
-            public IFormFile files { get; set; }
-        }
+   
 
         [HttpPost]
-        public async Task<string> Post([FromForm] FileUploadAPI objFile)
+        public async Task<IActionResult> Post()
         {
             try
             {
-                if (objFile.files.Length > 0)
+                //var conteudo = HttpContext.Items["model"].ToString();
+                var teste = Request.Form.Files[0];
+
+
+                if (teste.Length > 0)
                 {
                     if (!Directory.Exists(_environment.WebRootPath + "\\Upload\\"))
                     {
                         Directory.CreateDirectory(_environment.WebRootPath + "\\Upload\\");
                     }
-                    using (FileStream fileStream = System.IO.File.Create(_environment.WebRootPath + "\\Upload\\" + objFile.files.FileName))
+                    using (FileStream fileStream = System.IO.File.Create(_environment.WebRootPath + "\\Upload\\" + teste.FileName))
                     {
-                        objFile.files.CopyTo(fileStream);
+                        teste.CopyTo(fileStream);
                         fileStream.Flush();
-                        return "\\Upload\\" + objFile.files.FileName;
+                        return Ok();
 
                     }
                 }
                 else
                 {
-                    return "Failed";
+                    return StatusCode(500);
                 }
             }
             catch (Exception ex)
             {
 
-                return ex.Message.ToString();
+                return StatusCode(500,ex);
             }
         }
     }
