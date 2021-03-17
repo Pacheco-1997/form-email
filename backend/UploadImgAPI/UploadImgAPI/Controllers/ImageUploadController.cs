@@ -28,18 +28,25 @@ namespace UploadImgAPI.Controllers
             try
             {
                 //var conteudo = HttpContext.Items["model"].ToString();
-                var teste = Request.Form.Files[0];
+                var img1 = Request.Form.Files[0];
+                var img2 = Request.Form.Files[1];
+                var img3 = Request.Form.Files[2];
+
+                var nome = Request.Form["nome"];
+                var email = Request.Form["email"];
+                var plataforma = Request.Form["plataforma"];
+                var problema = Request.Form["problema"];
 
 
-                if (teste.Length > 0)
+                if (img1.Length > 0)
                 {
                     if (!Directory.Exists(_environment.WebRootPath + "\\Upload\\"))
                     {
                         Directory.CreateDirectory(_environment.WebRootPath + "\\Upload\\");
                     }
-                    using (FileStream fileStream = System.IO.File.Create(_environment.WebRootPath + "\\Upload\\" + teste.FileName))
+                    using (FileStream fileStream = System.IO.File.Create(_environment.WebRootPath + "\\Upload\\" + img1.FileName))
                     {
-                        teste.CopyTo(fileStream);
+                        img1.CopyTo(fileStream);
                         fileStream.Flush();
                         return Ok();
 
