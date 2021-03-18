@@ -4,28 +4,144 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<script src="manda_img.js"></script>-->
+    <style>
+        /* Button */
+       
+        .btn {
+            border: 0;
+            padding: 8px;
+            border-radius: 2px;
+            box-shadow: none;
+        }
+        .btn, .btn:focus {
+            outline: 0;
+        }
+
+ 
+
+        
+        .modal-footer .btn {
+            background: #f2f2f2!important;
+            color: #9c9aa6!important;
+            cursor: default;
+            font-size: 16px;
+            border: none;
+            border-radius: 0;
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            padding: 10px;
+            cursor:pointer
+        }
+
+        .modal-footer .btn:hover{
+            background-color: rgb(73, 81, 198);
+            color: rgb(247, 247, 249);
+        }
+
+    
+        .modal-footer {
+            height: 80px;
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+        }
+
+
+        textarea:focus, input:focus {
+            color: #000;
+        }
+
+        input, select, textarea{
+            color: #000;
+            width: 100%;
+        }
+
+        .input-text {
+            font-family: inherit;
+            border-radius: 4px;
+            outline: 0;
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 13px 20px;
+            color: #373737;
+            font-size: 16px;
+            height: 45px;
+            width: 100%;
+        }
+
+        /* Label */
+        .label-header {
+            font-weight: 700;
+            position: relative;
+            padding: 30px 0;
+            text-align: center;
+            -moz-flex: none;
+            flex: none;
+            font-size: 23px;
+        }
+
+        /* Global */
+        *, :after, :before {
+            box-sizing: border-box;
+            margin: 0;
+            line-height: 1.5em;
+            font-size: 15px;
+            
+            font-family: helvetica;
+            color: #9c9aa6;
+
+        }
+   
+        div .modal{
+            display: block;
+            opacity: 1;         
+        }
+        /* Inputs */
+        .body {
+            position: relative;
+            padding: 20px 40px;
+            flex: 1 1 auto;
+            overflow: auto;
+            color: #373737;
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+        }
+
+        
+    </style>
     <title>Form Email</title>
 </head>
 <body>
-    <label for="upload-form">Form Email</label><br>
+<div class="modal">
+    <div class="label-header">
+        <label for="upload-form" class="label-header">Form Email</label><br>
+    </div>
     <form id="upload-form" name="upload-form" action="" method="POST" enctype="multipart/form-data">
     
-    <label for="nome">Nome:</label><br>
-    <input name="nome" id="nome" type="text" ><br>
-     
-     <label for="email">Email:</label><br>
-     <input name="email" id="email" type="text" ><br>
-     
-     <label for="plataforma">Plataforma</label><br>
-     <input type="text" name="plataforma" id="plataforma"><br>
-
-     <label for="problem">Descrição do problema:</label><br>
-     <textarea name="problem" id="problem" rows="10" cols="50" >  </textarea>
-
-     <input type="file" name="file-img" id="file-img" placeholder="Escolha um arquivo" multiple>
-     <button name="submit" id="submit" type="submit">Enviar arquivo</button>
+        <div class="body">
+            <label for="nome">Nome</label><br>
+            <input name="nome" id="nome" type="text" required><br>
+             
+            <label for="email">E-mail</label><br>
+            <input name="email" id="email" type="text" required><br>
+             
+            <label for="plataforma">Plataforma</label><br>
+            <input type="text" name="plataforma" id="plataforma" required><br>
+        
+            <label for="problem">Descrição do problema:</label><br>
+            <textarea name="problem" id="problem" rows="10" cols="50" required>  </textarea><br>
+        
+            <input type="file" name="file-img" id="file-img" placeholder="Escolha um arquivo" multiple class="btn">
+  
+        </div>
+        <div class="modal-footer">     
+            <button class="btn" name="submit" id="submit" type="submit">Enviar arquivo</button>
+        </div>  
     </form>
+    
+</div>
     
 <script>
 
@@ -71,9 +187,14 @@ else {
 }
 
 
+
 const form = document.getElementById('upload-form');
    
-form.addEventListener('submit', uploadImage)
+form.addEventListener('submit', uploadImage);
+
+
 </script>
+
+
 </body>
 </html>
